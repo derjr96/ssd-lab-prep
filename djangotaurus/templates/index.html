@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
-{% load static %}
+<html lang="en">
 <title>Home</title>
+{% load static %}
 <body>
-<div>
-    <h1 id="hello">Hello World!</h1>
-    <form id="input" method="post">{% csrf_token %}
-	<input id="search" type="text" name="search">
-	<input id="btnSearch" type="submit" value="Search">
-    <form>
-</div>
-<body>
+    <div>
+        <h1 id="hello">Hello World!</h1>
+        <form id="input" method="post">{% csrf_token %}
+            <input id="search" type="text" name="search">
+            <input id="btnSearch" type="submit" value="Search">
+        </form>
+    </div>
+</body>
 {% block scripts %}
 {% endblock scripts %}
 </html>
