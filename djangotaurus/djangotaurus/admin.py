@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 
-from .models import User
+from .models import User, Profile, AccessToken, Stock, StockPriceCurrent, StockPriceHistory, Favourites, Transaction
 
 
 @admin.register(User)
