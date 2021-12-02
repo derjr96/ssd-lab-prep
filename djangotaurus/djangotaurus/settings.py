@@ -125,7 +125,7 @@ USE_TZ = True
 # )
 
 # Enable only for Linux Systems
-STATIC_ROOT = "/home/ubuntu/staticfolder"
+STATIC_ROOT = "/home/student127/staticfolder"
 
 STATIC_URL = '/static/'
 
