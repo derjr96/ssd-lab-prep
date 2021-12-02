@@ -11,12 +11,12 @@ pipeline {
 			steps {
 				script {
 					echo '-------- Performing Build Stage --------'
-		//			try {
-		//			    	sh 'apt-get install python3'
-		//			    	sh 'apt install python3-pip'
-		//			    	sh 'python3 -m pip install pipenv'
-		//				sh 'python3 -m pipenv install Pipfile'
-		//				sh 'python3 -m pipenv run python3 djangotaurus/manage.py collectstatic --noinput'
+					try {
+					    	sh 'apt-get install python3'
+					    	sh 'apt install python3-pip'
+					    	sh 'python3 -m pip install pipenv'
+						sh 'python3 -m pipenv install Pipfile'
+						sh 'python3 -m pipenv run python3 djangotaurus/manage.py collectstatic --noinput'
                         echo "Build has no errors! Proceeding on!"
                     } catch (Exception e) {
                         echo "Build has errors! Please check and verify!"
@@ -38,7 +38,7 @@ pipeline {
 //                 sh 'dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install'
 //            }
 //        }
-        /*stage('Unit Test') {
+        stage('Unit Test') {
             steps {
                 script {
                     echo '-------- Performing Automated Unit Test Stage --------'
@@ -75,7 +75,7 @@ pipeline {
 				dependencyCheckPublisher pattern: 'dependency-check-report.xml'
                 echo "OWASP DependencyCheck has no errors! Proceeding on!"
 			}
-		}*/
+		}
         /*stage('Deploy') {
 			steps {
 				script {
