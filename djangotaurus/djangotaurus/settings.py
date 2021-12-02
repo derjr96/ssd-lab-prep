@@ -125,5 +125,5 @@ STATIC_ROOT = "/home/student127/staticfolder"
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    ('assets', 'var/jenkins_home/workspace/SSD_LabTest/djangotaurus/assets'),
+    ('assets', 'djangotaurus/assets'),
 )
