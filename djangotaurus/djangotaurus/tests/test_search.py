@@ -44,7 +44,7 @@ class Test_Login_User_Interface(StaticLiveServerTestCase):
         self.browser.implicitly_wait(10)
         self.btnSearch.click()
 
-        assert self.search.text is "hello"
+        assert 'Search' in self.browser.title
 
     # def test_login_form_invalid_email(self):
     #     """
