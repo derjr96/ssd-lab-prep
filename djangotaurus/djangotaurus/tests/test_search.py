@@ -1,5 +1,7 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.test import override_settings
+from django.urls import reverse, resolve
+from ..views import home
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -12,11 +14,6 @@ from django.conf import settings
 class Test_Login_User_Interface(StaticLiveServerTestCase):
     """
         Selenium Login Page User Interface Test
-            - Accessing Login Page
-            - Login form with invalid email format
-            - Login form with invalid password format
-            - Login form with valid formats but did not perform reCAPTCHA
-            - Login form with valid inputs
     """
 
     def setUp(self):
@@ -33,8 +30,8 @@ class Test_Login_User_Interface(StaticLiveServerTestCase):
 
         # find the form elements
         # self.browser.implicitly_wait(10)
-        # self.email = self.browser.find_element(By.ID, 'em')
-        # self.password = self.browser.find_element(By.ID, 'pw')
+        self.search = self.browser.find_element(By.ID, 'search')
+        self.btnSearch = self.browser.find_element(By.ID, 'btnSearch')
 
         super().setUp()
 
@@ -42,9 +39,12 @@ class Test_Login_User_Interface(StaticLiveServerTestCase):
         self.browser.quit()
         super().tearDown()
 
-    def test_connection(self):
-        hello = self.browser.find_element(By.ID, 'hello').text
-        assert 'Hello World!' in hello
+    def test_successful_search(self):
+        self.search.send_keys('hello')
+        self.browser.implicitly_wait(10)
+        self.btnSearch.click()
+
+        assert self.search.text is "hello"
 
     # def test_login_form_invalid_email(self):
     #     """

@@ -7,7 +7,7 @@
 <body>
     <div>
         <h1 id="hello">Hello World!</h1>
-        <form id="input" method="post">{% csrf_token %}
+        <form id="input" action="{% url 'search'  %}" method="POST">{% csrf_token %}
             <input id="search" type="text" name="search">
             <input id="btnSearch" type="submit" value="Search">
         </form>

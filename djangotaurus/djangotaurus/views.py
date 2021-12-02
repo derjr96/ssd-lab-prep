@@ -1,20 +1,20 @@
-from django.shortcuts import render
-from django.views.decorators.http import require_http_methods, require_safe
+from django.shortcuts import render, redirect
+from django.views.decorators.http import require_safe, require_GET, require_POST
 import re
 
 
-@require_http_methods(["GET"])
+@require_GET
 def home(request):
     return render(request, 'index.html')
 
 
-@require_http_methods(["POST"])
+@require_POST
 def search(request):
     if request.method == "POST":
-        searchterm = str(request.POST.get('stock_id'))
+        searchterm = str(request.POST.get('search'))
         if searchterm:
             return render(request, "search.html", {'searchterm': searchterm})
-    return render(request, 'index.html')
+    return redirect(home)
 
 
 @require_safe
