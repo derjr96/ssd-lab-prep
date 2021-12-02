@@ -1,12 +1,16 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
 {% load static %}
-{% block title %}<title>Home</title>{% endblock title %}
-{% block stylesheets %}
-{% endblock stylesheets %}
-{% block content %}
+<title>Home</title>
+<body>
 <div>
     <h1 id="hello">Hello World!</h1>
+    <form id="input" method="post">{% csrf_token %}
+	<input id="search" type="text" name="search">
+	<input id="btnSearch" type="submit" value="Search">
+    <form>
 </div>
-{% endblock content %}
+<body>
 {% block scripts %}
 {% endblock scripts %}
+</html>
